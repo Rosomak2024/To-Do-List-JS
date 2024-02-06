@@ -7,6 +7,7 @@ const deleteButton = document.querySelector(".btn_2");
 const textInput = document.getElementById("text-input");
 const tasks = [];
 document.querySelectorAll("input[type='checkbox']");
+resetButtonState();
 
 document.addEventListener("keyup", function (event) {
   const isEventInTextInput = event.target === textInput;
