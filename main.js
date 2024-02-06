@@ -12,7 +12,7 @@ document.addEventListener("keyup", function (event) {
   const isEventInTextInput = event.target === textInput;
 
   if (isEventInTextInput) {
-    handleTextInput(event.target.value); // event 
+    handleTextInput(event.target.value); // event
   }
 });
 
@@ -21,11 +21,11 @@ document.addEventListener("click", function (event) {
     event.target === addButton ||
     event.target === deleteButton ||
     event.target === editButton;
-  const isEventOnCheckbox = event.target.type === 'checkbox';
-    
+  const isEventOnCheckbox = event.target.type === "checkbox";
+
   if (isEventOnButton) {
     handleButton(event);
-  } else if(isEventOnCheckbox){
+  } else if (isEventOnCheckbox) {
     handleCheckbox(event);
   }
 });
@@ -40,34 +40,30 @@ function handleButton(event) {
   }
 }
 
-function handleCheckbox(event){
-    const checkboxInputs = document.querySelectorAll("input[type='checkbox']");
+function handleCheckbox() {
+  const checkboxInputs = document.querySelectorAll("input[type='checkbox']");
 
-    const isAllUnchecked = [...checkboxInputs].every(checkboxInput => checkboxInput.checked === false);
-    console.log("isAllUnchecked",isAllUnchecked ) 
-    if(isAllUnchecked){
-      resetButtonState();
-    } else {
-      resetButtonStateWhenEdit();
-    }
+  const isAllUnchecked = [...checkboxInputs].every(
+    (checkboxInput) => checkboxInput.checked === false
+  );
+  console.log("isAllUnchecked", isAllUnchecked);
+  if (isAllUnchecked) {
+    resetButtonState();
+  } else {
+    resetButtonStateWhenEdit();
+  }
 }
 
 function handleTextInput(value) {
-  
-  console.log("handletextinut", value)
-  
-  if (textInput !== "" ) {
-    // resetButtonState();
+  console.log("handletextinut", value);
+
+  if (textInput !== "") {
     console.log("Input not empty");
   } else {
     resetButtonStateWhenEdit();
     console.log("Input empty");
   }
-  // jesli text input nie pusty to text
-
 }
-
-
 
 function resetButtonState() {
   addButton.disabled = false;
@@ -83,7 +79,6 @@ function resetButtonStateWhenEdit() {
 
 function resetTextInputState() {
   textInput.value = "";
-
 }
 
 function addTaskToList() {
@@ -103,7 +98,6 @@ function deleteTaskFromList() {
   const checkedCheckbox = document.querySelectorAll(
     "input[type='checkbox']:checked"
   );
-  // jak to moge zapisać oddzielnie
 
   checkedCheckbox.forEach((element) => {
     olParrentElement.removeChild(element.previousSibling);
@@ -116,7 +110,6 @@ function editTask() {
   const checkedCheckbox_toEdit = document.querySelector(
     'input[type="checkbox"]:checked'
   );
-  // jak to moge zapisać oddzielnie
 
   checkedCheckbox_toEdit.previousElementSibling.innerText = textInput.value;
   resetTextInputState();
