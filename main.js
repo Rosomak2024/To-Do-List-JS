@@ -108,7 +108,7 @@ function deleteTaskFromList() {
 }
 
 function editTask() {
-  const checkedCheckbox_toEdit = document.querySelector(
+  const checkedCheckbox_toEdit = document.querySelectorAll(
     'input[type="checkbox"]:checked'
   );
 
