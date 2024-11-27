@@ -1,5 +1,3 @@
-// import './style.css'
-
 const olParrentElement = document.querySelector("ol");
 const addButton = document.querySelector(".btn");
 const editButton = document.querySelector(".btn_1");
@@ -44,14 +42,18 @@ function handleButton(event) {
 function handleCheckbox() {
   const checkboxInputs = document.querySelectorAll("input[type='checkbox']");
 
-  const isAllUnchecked = [...checkboxInputs].every(
-    (checkboxInput) => checkboxInput.checked === false
+  const checkedCheckboxes = [...checkboxInputs].filter(
+    (checkboxInput) => checkboxInput.checked
   );
-  console.log("isAllUnchecked", isAllUnchecked);
-  if (isAllUnchecked) {
+
+  if (checkedCheckboxes.length === 0) {
     resetButtonState();
-  } else {
+  } else if (checkedCheckboxes.length === 1) {
     resetButtonStateWhenEdit();
+  } else {
+    addButton.disabled = true;
+    editButton.disabled = true;
+    deleteButton.disabled = false;
   }
 }
 
@@ -108,8 +110,8 @@ function deleteTaskFromList() {
 }
 
 function editTask() {
-  const checkedCheckbox_toEdit = document.querySelectorAll(
-    'input[type="checkbox"]:checked'
+  const checkedCheckbox_toEdit = document.querySelector(
+    "input[type='checkbox']:checked"
   );
 
   checkedCheckbox_toEdit.previousElementSibling.innerText = textInput.value;
