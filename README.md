@@ -1,6 +1,6 @@
 # To-Do List App
 
-Welcome to the **To-Do List App**! This is a simple to-do list application built using **JavaScript** and **HTML**. It allows you to add tasks, delete them, and mark them as completed.
+Welcome to the **To-Do List App**! This is a simple to-do list application built using **JavaScript** and **HTML**. It allows you to add tasks, delete and edit them, and mark them as completed.
 
 ## Live Demo
 
